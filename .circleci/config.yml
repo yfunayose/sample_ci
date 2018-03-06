@@ -41,6 +41,11 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: RuboCop によるコーディングスタイルのチェック
+          command: bundle exec rubocop
+
         
       # Database setup
       - run: bundle exec rake db:create
